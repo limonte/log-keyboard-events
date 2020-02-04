@@ -31,6 +31,17 @@
     document.addEventListener('keyup', (e) => {
       document.getElementById('events-log').value = '⬆️ KEYUP:' + e.key + '\n' + document.getElementById('events-log').value
     })
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        document.getElementById('events-log').value = 'KEYDOWN: CTRL + ENTER' + '\n' + document.getElementById('events-log').value
+      }
+    })
+    document.addEventListener('keypress', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        document.getElementById('events-log').value = 'KEYPRESS: CTRL + ENTER' + '\n' + document.getElementById('events-log').value
+      }
+    })
   </script>
   <textarea readonly autocomplete="off" id="events-log"></textarea>
 </body>
