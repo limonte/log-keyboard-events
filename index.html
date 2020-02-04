@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Keyboard event logger</title>
+  <style>
+    html, body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      margin: 0;
+    }
+
+    textarea {
+      flex: 1;
+      font-family: monospace;
+      font-size: 1.5em;
+      margin: .5em;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    document.addEventListener('keydown', (e) => {
+      document.getElementById('events-log').value = '⬇️ KEYDOWN: ' + e.key + '\n' + document.getElementById('events-log').value
+    })
+    document.addEventListener('keypress', (e) => {
+      document.getElementById('events-log').value = '○ KEYPRESS:' + e.key + '\n' + document.getElementById('events-log').value
+    })
+    document.addEventListener('keyup', (e) => {
+      document.getElementById('events-log').value = '⬆️ KEYUP:' + e.key + '\n' + document.getElementById('events-log').value
+    })
+  </script>
+  <textarea readonly autocomplete="off" id="events-log"></textarea>
+</body>
+</html>
